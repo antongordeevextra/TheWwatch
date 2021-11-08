@@ -4,5 +4,8 @@
         <attr name="color1" format="color" />
         <attr name="color2" format="color" />
         <attr name="color3" format="color" />
+        <attr name="size1" format="float" />
+        <attr name="size2" format="float" />
+        <attr name="size3" format="float" />
     </declare-styleable>
 </resources>

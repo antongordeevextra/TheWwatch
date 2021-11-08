@@ -12,7 +12,10 @@
         android:layout_height="match_parent"
         app:color1="#303F9F"
         app:color2="#D32F2F"
-        app:color3="#388E3C" />
+        app:color3="#388E3C"
+        app:size1="4"
+        app:size2="12"
+        app:size3="16"/>
 
     <com.example.thewatch.CustomViewWatchBody
         android:id="@+id/watchBody"

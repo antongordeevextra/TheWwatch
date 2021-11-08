@@ -22,6 +22,10 @@ class CustomViewWatchArrows @JvmOverloads constructor(
     private var color2 = 0
     private var color3 = 0
 
+    private var size1 = 0f
+    private var size2 = 0f
+    private var size3 = 0f
+
     private var mWidth = 0.0f
     private var mHeight = 0.0f
 
@@ -40,36 +44,43 @@ class CustomViewWatchArrows @JvmOverloads constructor(
     }
 
     init {
-        context.withStyledAttributes(attrs, R.styleable.CustomViewWatchArrows) {
-            color1 = getColor(R.styleable.CustomViewWatchArrows_color1, 0)
-            color2 = getColor(R.styleable.CustomViewWatchArrows_color2, 0)
-            color3 = getColor(R.styleable.CustomViewWatchArrows_color3, 0)
-        }
+        getAttributes(attrs)
 
         getTime()
 
         mHandler.sendEmptyMessageDelayed(1, 1000)
     }
 
+    private fun getAttributes(attrs: AttributeSet?) {
+        context.withStyledAttributes(attrs, R.styleable.CustomViewWatchArrows) {
+            color1 = getColor(R.styleable.CustomViewWatchArrows_color1, 0)
+            color2 = getColor(R.styleable.CustomViewWatchArrows_color2, 0)
+            color3 = getColor(R.styleable.CustomViewWatchArrows_color3, 0)
+            size1 = getFloat(R.styleable.CustomViewWatchArrows_size1, 0f)
+            size2 = getFloat(R.styleable.CustomViewWatchArrows_size2, 0f)
+            size3 = getFloat(R.styleable.CustomViewWatchArrows_size3, 0f)
+        }
+    }
+
     private val secArrow = Paint().apply {
         isAntiAlias = true
         color = color1
         style = Paint.Style.STROKE
-        strokeWidth = 4f
+        strokeWidth = size1
     }
 
     private val minArrow = Paint().apply {
         isAntiAlias = true
         color = color2
         style = Paint.Style.STROKE
-        strokeWidth = 12f
+        strokeWidth = size2
     }
 
     private val hourArrow = Paint().apply {
         isAntiAlias = true
         color = color3
         style = Paint.Style.STROKE
-        strokeWidth = 16f
+        strokeWidth = size3
     }
 
     override fun onDraw(canvas: Canvas?) {
