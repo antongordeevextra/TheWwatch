@@ -9,7 +9,10 @@
     <com.example.thewatch.CustomViewWatchArrows
         android:id="@+id/watchArrows"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:color1="#303F9F"
+        app:color2="#D32F2F"
+        app:color3="#388E3C" />
 
     <com.example.thewatch.CustomViewWatchBody
         android:id="@+id/watchBody"

@@ -3,20 +3,6 @@ package com.example.thewatch
 import android.graphics.Color
 import android.graphics.Paint
 
-val blue = Paint().apply {
-    isAntiAlias = true
-    color = Color.BLUE
-    style = Paint.Style.STROKE
-    strokeWidth = 4f
-}
-
-val red = Paint().apply {
-    isAntiAlias = true
-    color = Color.RED
-    style = Paint.Style.STROKE
-    strokeWidth = 12f
-}
-
 val black = Paint().apply {
     isAntiAlias = true
     color = Color.BLACK
