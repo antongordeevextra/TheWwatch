@@ -21,7 +21,7 @@ class CustomViewWatchBody @JvmOverloads constructor(
 
         mWidth = width.toFloat()
         mHeight = height.toFloat()
-        radius = mWidth/2 - 50
+        radius = mWidth/2 - mWidth/20
 
         canvas?.drawCircle(mWidth/2,mHeight/2,radius, black)
 
@@ -30,7 +30,7 @@ class CustomViewWatchBody @JvmOverloads constructor(
         for (i in 1..12) {
             canvas?.withSave {
                 canvas.rotate(360/12f * (i), mWidth/2, mHeight/2)
-                canvas.drawLine(mWidth/2, radius, mWidth/2, mHeight/2 - radius, black)
+                canvas.drawLine(mWidth/2, mHeight/2 - radius + mHeight/50, mWidth/2, mHeight/2 - radius, black)
                 canvas.drawText((i).toString(), mWidth/2 - 25, mHeight/2-mWidth/2+200, text)
             }
         }
@@ -38,7 +38,7 @@ class CustomViewWatchBody @JvmOverloads constructor(
         for (i in 1..60) {
             canvas?.withSave {
                 canvas.rotate(360/60f * (i), mWidth/2, mHeight/2)
-                canvas.drawLine(mWidth/2, radius-20, mWidth/2, mHeight/2 - radius, minuteLine)
+                canvas.drawLine(mWidth/2, mHeight/2 - radius + mHeight/60, mWidth/2, mHeight/2 - radius, minuteLine)
             }
         }
     }

@@ -28,6 +28,7 @@ class CustomViewWatchArrows @JvmOverloads constructor(
     private var hours = 0.0f
     private var minutes = 0.0f
     private var seconds = 0.0f
+    private var radius = 0.0f
 
     private val mHandler = object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
@@ -76,20 +77,21 @@ class CustomViewWatchArrows @JvmOverloads constructor(
 
         mWidth = width.toFloat()
         mHeight = height.toFloat()
+        radius = mWidth/2 - mWidth/20
 
         canvas?.withSave {
             canvas.rotate(360/60 * seconds, mWidth /2, mHeight /2)
-            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /4, secArrow)
+            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /2 - radius + mHeight/40, secArrow)
         }
 
         canvas?.withSave {
             canvas.rotate(360/60 * minutes + seconds * 0.1f, mWidth /2, mHeight /2)
-            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /3.5f, minArrow)
+            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /2 - radius + mHeight/20, minArrow)
         }
 
         canvas?.withSave {
             canvas.rotate(360/12 * hours + minutes * 0.5f, mWidth /2, mHeight /2)
-            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /3, hourArrow)
+            canvas.drawLine(mWidth /2, mHeight /2, mWidth /2, mHeight /2 - radius + mHeight/10, hourArrow)
         }
 
         mHandler.sendEmptyMessageDelayed(1, 1000)
